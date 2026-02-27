@@ -32,3 +32,8 @@ SELECT ROUND(AVG(price)) FROM car;
 SELECT make, MAX(price) FROM car GROUP BY make; SELECT make, MIN(price) FROM car GROUP BY make; SELECT make, AVG(price) FROM car GROUP BY make;
 
 
+-- USING ARITHMETIC 
+
+SELECT id, make, model, price, ROUND((price * .10),2), ROUND((price -  price *.10),2) FROM car;
+
+

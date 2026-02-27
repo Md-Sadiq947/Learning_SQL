@@ -36,4 +36,24 @@ SELECT make, MAX(price) FROM car GROUP BY make; SELECT make, MIN(price) FROM car
 
 SELECT id, make, model, price, ROUND((price * .10),2), ROUND((price -  price *.10),2) FROM car;
 
+--Alias 
+--HELPS IN RENAMING THE COLUMN NAME
+
+-- Coalesce is used to deal with the NULL SETS  
+
+SELECT COALESCE(email, 'Email is not given')FROM person;
+
+
+--time stamps 
+SELECT NOW();
+
+SELECT NOW():: DATE;
+
+
+SELECT NOW():: TIME;
+
+
+SELECT NOW():: TIME WITH TIMEZONE;
+
+SELECT NOW() - INTERVAL '1 year';
 

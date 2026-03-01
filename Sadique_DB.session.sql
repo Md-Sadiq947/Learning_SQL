@@ -47,4 +47,13 @@ SELECT COALESCE(email, 'Email is not given')FROM person;
 --time stamps 
 
 
---primary keys are used to uniquely identify the records in table 
+--primary keys are used to uniquely identify the records in table
+-- to remove the PRIMARY KEY 
+ ALTER TABLE person DROP CONSTRAINT person_pkey;
+
+--to add the primary key 
+ALTER TABLE person ADD PRIMARY KEY (id) -- you can pass multiple values in the paranthesis 
+
+-- to add the unique constraints 
+ALTER TABLE person ADD CONSTRAINT unique_email_address UNIQUE(email); -- constraint name is given by user
+ALTER TABLE person ADD  UNIQUE(email); -- constraint name is given by the postgres

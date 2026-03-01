@@ -45,15 +45,6 @@ SELECT COALESCE(email, 'Email is not given')FROM person;
 
 
 --time stamps 
-SELECT NOW();
-
-SELECT NOW():: DATE;
 
 
-SELECT NOW():: TIME;
-
-
-SELECT NOW():: TIME WITH TIMEZONE;
-
-SELECT NOW() - INTERVAL '1 year';
-
+--primary keys are used to uniquely identify the records in table 

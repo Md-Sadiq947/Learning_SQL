@@ -59,8 +59,29 @@ ALTER TABLE person ADD CONSTRAINT unique_email_address UNIQUE(email); -- constra
 ALTER TABLE person ADD  UNIQUE(email); -- constraint name is given by the postgres
 
 --CHECK CONSTRAINT USING THE 'CHECK' keyword
+
 ALTER TABLE person ADD CONSTRAINT two_gender CHECK(gender = 'Male' OR gender = 'Female');
 
 
 --Delete table 
 DELETE FROM person WHERE id = 1; -- it is better to use the primary key as a statement in where clause
+
+-- Updating the Records
+
+UPDATE person SET email = 'jord@192outlook.com' WHERE id = 2;
+UPDATE person SET first_name = 'khalid', last_name = 'mirza' WHERE id = 2; -- it is good record to use UPDATE and DELETE command followed by WHERE  
+
+--ON CONFLICT DO NOTHING
+INSERT INTO person(id, first_name, last_name, email, gender, date_of_birth, country_of_birth)
+VALUES(11, 'Clarabelle', 'Burrow', 'cburrow@google.de', 'Female', DATE '2024-12-20', 'Brazil')
+ON CONFLICT(id) DO NOTHING;
+
+--ON CONFLICT updating the records
+                                                      
+INSERT INTO person(id, first_name, last_name, email, gender, date_of_birth, country_of_birth)
+VALUES(11, 'Clarabelle', 'Burrow', 'cburrow@google.de.uk', 'Male', DATE '2024-12-20', 'Brazil')
+ON CONFLICT(id) DO UPDATE SET email = EXCLUDED.email, gender = EXCLUDED.gender;
+--EXCLUDED.email corresponds to the values to be inserted 
+
+
+
